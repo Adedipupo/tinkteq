@@ -1,6 +1,5 @@
 import express from 'express';
-import userRouter from './user-routes.js';
-import authorRouter from './author-route.js';
+import orderRouter from './order-route.js';
 
 const router = express.Router();
 
@@ -10,8 +9,7 @@ router.get("/", (req, res) => {
 
 
 
-router.use("/user", userRouter);
-router.use("/author", authorRouter);
+router.use("/order", orderRouter);
 
 
 export default router;

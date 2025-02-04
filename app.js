@@ -9,7 +9,8 @@ import path from 'path'
 import connectDB from './src/config/database.js';
 import Config from './src/config/config.js';
 import indexRouter from './src/routes/index.js';
-
+import { initializeSocket } from './src/socket/socket.js';
+import { io } from './src/socket/socket.js';
 
 dotenv.config()
 
@@ -65,8 +66,9 @@ app.all('/health', (req, res) => {
     .end()
 })
 
-app.listen(port, () => {
+const server =  app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
+    initializeSocket(server); 
 });
 
 export default app;
