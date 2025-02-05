@@ -18,7 +18,6 @@ const app = express();
 
 connectDB()
 
-
 const port = Config.serverPort || 3000;
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname)

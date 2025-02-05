@@ -25,7 +25,6 @@ export const createOrder = async (req, res, next) => {
 
 export const updateOrder = async (req, res, next) => {
     try {
-        // Check if the status is valid according to the enum in the schema
         if (req.body.status && !['pending', 'dispatched', 'in-transit', 'delivered'].includes(req.body.status)) {
             return res.status(400).json({ message: "Invalid status" });
         }
@@ -34,6 +33,7 @@ export const updateOrder = async (req, res, next) => {
         if (!order) return res.status(404).json({ message: 'Order not found' });
         // Emit to clients subscribed to this order's updates
         io.to(order._id.toString()).emit('orderUpdate', order); 
+        console.log('Order updated and event emitted for order:', order._id);
         res.json(order);
     } catch (err) {
         console.error("Error in updateOrder:", err);
