@@ -82,7 +82,7 @@ Check for Updates: If everything is set up correctly, you should see updates in 
 
 sample html
 
-<!-- <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -127,4 +127,4 @@ sample html
 
     </script>
 </body>
-</html> -->
+</html> 
