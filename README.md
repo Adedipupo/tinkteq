@@ -80,51 +80,5 @@ curl -X PATCH -H "Content-Type: application/json" -d '{"status":"dispatched"}' h
 
 Check for Updates: If everything is set up correctly, you should see updates in the browser immediately after updating the order via the API.
 
-sample html
 
- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Order Tracking Tester</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.min.js"></script>
-</head>
-<body>
-    <h1>Socket.IO Test</h1>
-    <p id="status">Status: Not Connected</p>
-    <p id="orderUpdates"></p>
-    
-    <button onclick="subscribeToOrder()">Subscribe to Order</button>
-
-    <script>
-        const socket = io('http://localhost:3900'); // Assuming your server runs on port 3900
-        const statusElement = document.getElementById('status');
-        const updatesElement = document.getElementById('orderUpdates');
-
-        socket.on('connect', function() {
-            statusElement.innerText = 'Status: Connected';
-        });
-
-        socket.on('disconnect', function() {
-            statusElement.innerText = 'Status: Disconnected';
-        });
-
-        socket.on('orderUpdate', function(order) {
-        console.log('Received order update:', order);
-        const update = document.createElement('div');
-        update.innerText = `Order Update: ${JSON.stringify(order)}`;
-        updatesElement.appendChild(update);
-        });
-
-        function subscribeToOrder() {
-            const orderId = prompt("Enter the order ID to subscribe to:");
-            if (orderId) {
-                socket.emit('subscribeToOrder', orderId);
-            }
-        }
-
-
-    </script>
-</body>
-</html> 
+ 
