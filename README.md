@@ -14,7 +14,7 @@ This project implements an Express.js API for real-time order tracking using Mon
 1. **Clone the repository:**
 
    ```bash
-   git clone [your-repository-url]
+   git clone https://github.com/Adedipupo/tinkteq.git
    cd tinkteq
 
 Install dependencies:
